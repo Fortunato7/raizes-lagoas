@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horta Comunitária</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">
+      <img src="./img/logorzs.jpg" alt="Logo da Horta">
+      <div>
+        <h1>🌱 Raizes Lagoas</h1>
+        <p>Comida fresca, direto da nossa terra para você</p>
+      </div>
+    </div>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#pedido">Pedido</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Mais sabor e saúde no seu dia a dia</h2>
+      <p>Horta comunitária: sabor local, impacto global.</p>
+      <a href="#pedido" class="btn">Fazer Pedido</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="container">
+    <h2>Sobre a nossa horta</h2>
+    <p>
+Somos uma iniciativa que acredita que comer bem e cuidar do planeta podem andar juntos.
+ Selecionamos, com carinho, os produtos frescos cultivados na horta comunitária da nossa cidade — 
+ um espaço de cultivo coletivo que valoriza o trabalho local e respeita a natureza. A cada colheita, levamos frutas, verduras e hortaliças até pontos estratégicos, para que cheguem rapidamente à sua mesa, com o mínimo de transporte e o máximo de sabor.
+Mais do que vender alimentos, oferecemos praticidade, saúde e um compromisso real com a sustentabilidade — 
+fortalecendo a comunidade, reduzindo desperdícios e aproximando quem planta de quem consome.</p>
+  </section>
+
+  <section class="extra-bg">
+    <div class="extra-content">
+      <h2>Participe da nossa comunidade</h2>
+      <p>Além de comprar, você pode ajudar no plantio e aprender mais sobre agricultura sustentável.</p>
+    </div>
+  </section>
+
+  <section id="produtos" class="container">
+    <h2>Produtos fresquinhos</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="img/alface.jpg" alt="Alface">
+        <h3>Alface</h3>
+        <p>Crocante e cheia de sabor.</p>
+      </div>
+      <div class="card">
+        <img src="img/tomate.jpg" alt="Tomate">
+        <h3>Tomate</h3>
+        <p>Doce e suculento.</p>
+      </div>
+      <div class="card">
+        <img src="img/cenoura.jpg" alt="Cenoura">
+        <h3>Cenoura</h3>
+        <p>Rica em nutrientes e saborosa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pedido" class="pedido-section">
+    <h2>Fazer Pedido</h2>
+    <form>
+      <label>Nome:</label>
+      <input type="text" required>
+
+      <label>Telefone:</label>
+      <input type="tel" required>
+
+      <label>Produto desejado:</label>
+      <select id="produto" required>
+        <option value="">Selecione</option>
+        <option value="batata">Batata</option>
+        <option value="alface">Alface</option>
+        <option value="tomate">Tomate</option>
+        <option value="couve">Couve</option>
+        <option value="outro">Outro</option>
+      </select>
+
+      <!-- Campo extra escondido -->
+      <input type="text" id="outroProduto" placeholder="Digite o produto" style="display:none; margin-top:8px;">
+
+      <label>Opção de entrega:</label>
+      <select required>
+        <option value="">Selecione</option>
+        <option value="retirada">Retirar no local</option>
+        <option value="entrega">Entrega em casa</option>
+        <option value="express">Entrega Expressa (1h) taxa de 10 R$</option>
+      </select>
+
+      <button type="submit" class="btn">Enviar Pedido</button>
+    </form>
+  </section>
+
+  <!-- Contato -->
+  <footer id="contato">
+    <p>📍 Terminal Urbano de Sete Lagoas, Centro </p>
+    <p>📞 (31) 99876-533</p>
+    <p>🌐 Instagram: @raizeslagoas</p>
+  </footer>
+
+  <button id="topBtn" title="Voltar ao topo">⬆</button>
+
+  <script>
+    const topBtn = document.getElementById("topBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+      } else {
+        topBtn.style.display = "none";
+      }
+    };
+    topBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Lógica para mostrar campo extra se selecionar "Outro"
+    const produtoSelect = document.getElementById('produto');
+    const outroProdutoInput = document.getElementById('outroProduto');
+
+    produtoSelect.addEventListener('change', function() {
+      if (this.value === 'outro') {
+        outroProdutoInput.style.display = 'block';
+        outroProdutoInput.required = true;
+      } else {
+        outroProdutoInput.style.display = 'none';
+        outroProdutoInput.required = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
